@@ -47,3 +47,4 @@ $ npm i react-native-advance-draggable-view --save
 | renderDrawerView | undefined | `View` | Pass as parameter a renderable react component to show as drawer. |
 |renderInitDrawerView| undefined | `View` | Pass as parameter a renderable react component to show as view can draggable |
 # react-native-advance-draggable-view
+# react-native-advance-draggable-view
