@@ -5,34 +5,36 @@
     "react-component",
     "react-native",
     "vertical draggable view",
-    "ios","android",
-      "drag drop view", "drawer", "bottom drawer"
+    "ios",
+    "android",
+    "drag drop view",
+    "drawer",
+    "bottom drawer"
   ],
   "description": "DraggableView component for React Native. Base from DraggableDrawer",
   "main": "index.js",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mr-Strike/react-native-advance-draggable-view.git"
   },
-   "author": "mr-strike <brahamdev.npm@gmail.com>",
-   "contributors": [{
-   "name": "Dao Hoang Tien",
-   "email": "daohoangtien@gmail.com",
-   "url": "https://github.com/yaraht17",
-   "website": "twinger.co"
-   },
-   {
-    "name": "yaraht17",
-    "email": "daohoangtien.ptit@gmail.com",
-    "url": "https://github.com/yaraht17",
-    "website": "twinger.co"
-    }],
+  "author": "mr-strike <brahamdev.npm@gmail.com>",
+  "contributors": [
+    {
+      "name": "Dao Hoang Tien",
+      "email": "daohoangtien@gmail.com",
+      "url": "https://github.com/yaraht17",
+      "website": "twinger.co"
+    },
+    {
+      "name": "yaraht17",
+      "email": "daohoangtien.ptit@gmail.com",
+      "url": "https://github.com/yaraht17",
+      "website": "twinger.co"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Mr-Strike/react-native-advance-draggable-view/issues"
   },
   "homepage": "https://github.com/Mr-Strike/react-native-advance-draggable-view#readme"
-
-
 }
