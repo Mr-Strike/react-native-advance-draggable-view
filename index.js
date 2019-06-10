@@ -42,6 +42,11 @@ export default class component extends Component {
     this.props.onRelease && this.props.onRelease(false); // only add this line if you need to detect if the drawer is up or not
   }
 
+  openDrawer = () => {
+    this.startAnimation(-100, SCREEN_HEIGHT, this.state.initialPositon, null, this.state.finalPosition);
+    this.props.onRelease && this.props.onRelease(true); // only add this line if you need to detect if the drawer is up or not
+  }
+
   isAValidMovement = (distanceX, distanceY) => {
     const moveTravelledFarEnough = Math.abs(distanceY) > Math.abs(distanceX) && Math.abs(distanceY) > 2;
     return moveTravelledFarEnough;

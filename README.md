@@ -40,6 +40,7 @@ $ npm i react-native-advance-draggable-view --save
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
+| refFunc | undefined | `function` | Can get the instance of the Drawer and use it's internal functions  |
 | onDragDown | undefined | `function` | If you pass a function as parameter it will be notified when the user drag down the drawer  |
 | onRelease | undefined | `function` | If you pass a function as parameter it will be notified when the user release the drawer after drag it |
 | initialDrawerSize | 0.0 | `number` | It's the initial position or size for Drawer component. If  drawer size is 1 that means its using 100% of avalaible space on the screen |
