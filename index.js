@@ -69,6 +69,7 @@ export default class component extends Component {
       toValue: endPosition,
       tension: 30,
       friction: 0,
+      duration: 500,
       // easing:Easing.elastic,
       velocity: velocityY
     }).start();
