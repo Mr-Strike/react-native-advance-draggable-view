@@ -39,7 +39,7 @@ export default class component extends Component {
   }
 
   closeDrawer = () => {
-    this.startAnimation(-100, this.state.initialDrawerSize, this.state.finalPosition, null, this.state.initialPositon);
+    this.startAnimation(-100, 0, this.state.finalPosition, null, this.state.initialPositon);
     this.props.onRelease && this.props.onRelease(false); // only add this line if you need to detect if the drawer is up or not
   }
 
