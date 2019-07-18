@@ -29,6 +29,7 @@ export default class component extends Component {
     this.props.refFunc(this);
     // console.log(initialDrawerSize, 'Initila size');
     this.state = {
+      isDrawerSwiped: false,
       touched: 'FALSE',
       position: new Animated.Value(initialDrawerSize),
       initialPositon: initialDrawerSize,
@@ -53,6 +54,17 @@ export default class component extends Component {
     return moveTravelledFarEnough;
   }
 
+  makePanResponderMoveOnTouch = () => {
+    const {
+      isDrawerSwiped,
+    } = this.state
+    const {
+      onTouchDrawer
+    } = this.props
+    if (isDrawerSwiped && onTouchDrawer) {
+      onTouchDrawer()
+    }
+  }
 
   startAnimation = (velocityY, positionY, initialPositon, id, finalPosition) => {
     // console.log('creating animation ');
@@ -97,12 +109,18 @@ export default class component extends Component {
   componentWillMount() {
     this._panGesture = PanResponder.create({
       onMoveShouldSetPanResponder: (evt, gestureState) => {
-        return this.isAValidMovement(gestureState.dx, gestureState.dy) && this.state.touched == 'TRUE';
+        console.warn('in onMoveShouldSetPanResponder')
+        return this.isAValidMovement(gestureState.dx, gestureState.dy) && this.state.touched == 'TRUE'
       },
       onPanResponderMove: (evt, gestureState) => {
+        console.warn('in onPanResponderMove')
+        this.setState({
+          isDrawerSwiped: true,
+        })
         this.moveDrawerView(gestureState);
       },
       onPanResponderRelease: (evt, gestureState) => {
+        console.warn('in onPanResponderRelease')
         this.moveFinished(gestureState);
       },
     });
@@ -149,12 +167,17 @@ export default class component extends Component {
         >
           <TouchableWithoutFeedback
             onPressIn={() => {
-              console.log('touch in');
-              this.setState({ touched: 'TRUE' });
+              console.warn('touch in');
+              this.setState({
+                touched: 'TRUE',
+              });
             }}
             onPressOut={() => {
-              this.setState({ touched: 'FALSE' });
-              console.log('touch out');
+              this.setState({
+                touched: 'FALSE',
+              });
+              this.makePanResponderMoveOnTouch()
+              console.warn('touch out');
             }}>
             {initDrawerView}
           </TouchableWithoutFeedback>
