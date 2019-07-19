@@ -61,7 +61,7 @@ export default class component extends Component {
     const {
       onTouchDrawer
     } = this.props
-    if (isDrawerSwiped && onTouchDrawer) {
+    if (!isDrawerSwiped && onTouchDrawer) {
       onTouchDrawer()
     }
   }
@@ -109,18 +109,18 @@ export default class component extends Component {
   componentWillMount() {
     this._panGesture = PanResponder.create({
       onMoveShouldSetPanResponder: (evt, gestureState) => {
-        console.warn('in onMoveShouldSetPanResponder')
+        // console.warn('in onMoveShouldSetPanResponder')
         return this.isAValidMovement(gestureState.dx, gestureState.dy) && this.state.touched == 'TRUE'
       },
       onPanResponderMove: (evt, gestureState) => {
-        console.warn('in onPanResponderMove')
+        // console.warn('in onPanResponderMove')
         this.setState({
           isDrawerSwiped: true,
         })
         this.moveDrawerView(gestureState);
       },
       onPanResponderRelease: (evt, gestureState) => {
-        console.warn('in onPanResponderRelease')
+        // console.warn('in onPanResponderRelease')
         this.moveFinished(gestureState);
       },
     });
@@ -167,7 +167,7 @@ export default class component extends Component {
         >
           <TouchableWithoutFeedback
             onPressIn={() => {
-              console.warn('touch in');
+              // console.warn('touch in');
               this.setState({
                 touched: 'TRUE',
               });
@@ -175,9 +175,10 @@ export default class component extends Component {
             onPressOut={() => {
               this.setState({
                 touched: 'FALSE',
+                isDrawerSwiped: false,
               });
               this.makePanResponderMoveOnTouch()
-              console.warn('touch out');
+              // console.warn('touch out');
             }}>
             {initDrawerView}
           </TouchableWithoutFeedback>
